@@ -1,0 +1,17 @@
+STUDENT ATTENDANCE MANAGEMENT SYSTEM
+
+1. Extract the entire ZIP first. Do not run it from inside the ZIP.
+2. Open the extracted student-attendance folder.
+3. Double-click start.bat and leave its terminal open.
+4. Open http://localhost:8080 in your browser.
+5. Add students, add a subject, then mark attendance.
+6. Use Reports to see percentages and students below 75%.
+
+Stop any previous copy using port 8080 before starting this one.
+Java JDK 17 or newer is needed. A JDK was found on your computer during development.
+The built JAR uses a local H2 database automatically. No MySQL setup is needed for this mode.
+If your teacher wants MySQL, follow the optional MySQL section in README.md.
+
+README.md: setup, requirements and demonstration steps
+OOP-EXPLANATION.md: explanation of your Java classes for the viva
+VERIFICATION.md: checks actually performed

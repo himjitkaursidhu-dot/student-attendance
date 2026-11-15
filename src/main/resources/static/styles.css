@@ -1,0 +1,41 @@
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: #f3f3f3; color: #222; font: 14px Arial, sans-serif; line-height: 1.5; }
+header, main { max-width: 1200px; margin: auto; padding: 20px; background: white; }
+header { border-bottom: 1px solid #bbb; }
+h1 { font-size: 24px; margin: 0 0 16px; }
+h2 { font-size: 21px; margin: 0 0 16px; }
+h3 { font-size: 16px; margin: 18px 0 10px; }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+nav a, button { background: #1768b3; color: white; border: 1px solid #12558f; padding: 8px 12px; font: inherit; text-decoration: none; cursor: pointer; }
+nav a[aria-current="page"] { background: #104b80; text-decoration: underline; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+:focus-visible { outline: 3px solid #e09a16; outline-offset: 2px; }
+.entry-form, .filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; margin-bottom: 20px; }
+.entry-form > div, .filters > div { flex: 1 1 180px; }
+label { display: block; margin-bottom: 4px; }
+input, select { border: 1px solid #999; background: white; padding: 8px; width: 100%; font: inherit; color: #222; }
+input[type="search"] { max-width: 440px; }
+.form-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.table-wrap { overflow-x: auto; margin: 12px 0; }
+table { border-collapse: collapse; width: 100%; text-align: left; }
+th, td { border: 1px solid #bbb; padding: 9px; vertical-align: middle; }
+th { background: #eaeaea; }
+.cell-title, .cell-subtitle { display: block; }
+.cell-subtitle { font-size: 12px; color: #555; }
+.actions { display: flex; gap: 6px; }
+.actions button, td > button { padding: 5px 9px; }
+.empty { text-align: center; color: #555; padding: 20px; }
+.status-choice { min-width: 150px; }
+.low, .absent { color: #a01818; }
+.checkbox-label { display: flex; align-items: center; gap: 6px; }
+.checkbox-label input { width: auto; }
+.feedback { padding: 10px; border: 1px solid #769e76; background: #eef7ee; }
+.feedback.error { border-color: #b64b4b; background: #fff0f0; color: #8f1010; }
+.feedback.info { border-color: #aaa; background: #f5f5f5; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+@media (max-width: 600px) {
+  header, main { padding: 14px; }
+  .entry-form > div, .filters > div { flex-basis: 100%; }
+  nav a { padding: 7px 9px; }
+}
