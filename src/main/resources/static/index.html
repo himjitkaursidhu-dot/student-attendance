@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,17 +66,9 @@ button {
 
 button:hover { background: #1d4ed8; }
 
-button.secondary {
-    background: #64748b;
-}
-
-button.success {
-    background: #15803d;
-}
-
-button.danger {
-    background: #dc2626;
-}
+button.secondary { background: #64748b; }
+button.success { background: #15803d; }
+button.danger { background: #dc2626; }
 
 table {
     width: 100%;
@@ -100,9 +91,7 @@ pre {
     overflow-wrap: anywhere;
 }
 
-.status-select {
-    min-width: 120px;
-}
+.status-select { min-width: 120px; }
 
 .summary {
     display: flex;
@@ -115,9 +104,7 @@ pre {
 .present-text { color: #15803d; }
 .absent-text { color: #dc2626; }
 
-.table-wrapper {
-    overflow-x: auto;
-}
+.table-wrapper { overflow-x: auto; }
 
 @media(max-width:700px) {
     .cards { grid-template-columns: 1fr; }
@@ -201,7 +188,6 @@ pre {
                     <th>Email</th>
                     <th>Department</th>
                     <th>Semester</th>
-                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -398,7 +384,7 @@ async function loadStudents() {
     }
 }
 
-// DISPLAY STUDENTS
+// DISPLAY STUDENTS (DELETE OPTION REMOVED)
 function displayStudents() {
 
     const search = document.getElementById("searchStudent")
@@ -416,18 +402,12 @@ function displayStudents() {
                 <td>${escapeHTML(s.email)}</td>
                 <td>${escapeHTML(s.department)}</td>
                 <td>${s.semester}</td>
-                <td>
-                    <button class="danger"
-                        onclick="deleteStudent(${s.studentId})">
-                        Delete
-                    </button>
-                </td>
             </tr>
         `).join("");
 
     if (filtered.length === 0) {
         document.getElementById("studentTable").innerHTML =
-            '<tr><td colspan="6">No students found</td></tr>';
+            '<tr><td colspan="5">No students found</td></tr>';
     }
 }
 
@@ -477,32 +457,6 @@ async function addStudent() {
     } catch (error) {
 
         message.textContent = error.message;
-    }
-}
-
-// DELETE STUDENT
-async function deleteStudent(id) {
-
-    if (!confirm("Are you sure you want to delete this student?")) {
-        return;
-    }
-
-    try {
-
-        const response = await fetch(API + "/students/" + id, {
-            method: "DELETE"
-        });
-
-        if (!response.ok) {
-            throw new Error("Could not delete student");
-        }
-
-        await loadStudents();
-        await loadDefaulters();
-
-    } catch (error) {
-
-        alert(error.message);
     }
 }
 
@@ -572,7 +526,6 @@ function renderBulkAttendance() {
         }
     });
 
-    // Remove statuses belonging to deleted students
     const currentIds = new Set(allStudents.map(s => String(s.studentId)));
 
     Object.keys(attendanceStatus).forEach(id => {
@@ -640,7 +593,6 @@ function updateAttendanceCounts() {
     });
 
     document.getElementById("presentCount").textContent = present;
-
     document.getElementById("absentCount").textContent = absent;
 }
 
